@@ -1,13 +1,79 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="REZAWORLD builds high-converting websites with modern design, speed, and SEO." />
+  <title>REZAWORLD | Website Development & Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="home">
+  <canvas id="particle-canvas"></canvas>
+  <div class="preloader"><div class="loader-ring"></div></div>
+  <header class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">REZA<span>WORLD</span></a>
+      <nav class="nav-links">
+        <a data-page="home" href="index.html">Home</a><a data-page="services" href="services.html">Services</a><a data-page="pricing" href="pricing.html">Pricing</a><a data-page="portfolio" href="portfolio.html">Portfolio</a><a data-page="about" href="about.html">About</a><a data-page="contact" href="contact.html">Contact</a><a data-page="order" href="order.html">Order</a>
+      </nav>
+      <button class="mode-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+    </div>
+  </header>
 
+  <main class="container">
+    <section class="hero">
+      <div data-aos="fade-right">
+        <h1>We Build Stunning Websites That Convert 🚀</h1>
+        <p>REZAWORLD blends futuristic visuals, conversion strategy, and flawless engineering to craft digital experiences that elevate your brand and turn visitors into clients.</p>
+        <div class="btns">
+          <a class="btn btn-primary" href="order.html">Get Started</a>
+          <a class="btn btn-secondary" href="pricing.html">View Plans</a>
+        </div>
+      </div>
+      <div class="hero-card glass" data-aos="zoom-in">
+        <div class="orb"></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head" data-aos="fade-up"><h2>Why brands choose us</h2></div>
+      <div class="grid grid-3">
+        <article class="card glass" data-aos="fade-up"><div class="icon"><i class="fa-solid fa-bolt"></i></div><h3>Fast Performance ⚡</h3><p>Optimized code and smart architecture for lightning load speed.</p></article>
+        <article class="card glass" data-aos="fade-up" data-aos-delay="100"><div class="icon"><i class="fa-solid fa-palette"></i></div><h3>Modern Design 🎨</h3><p>Clean, premium and interactive interfaces tailored for your audience.</p></article>
+        <article class="card glass" data-aos="fade-up" data-aos-delay="200"><div class="icon"><i class="fa-solid fa-chart-line"></i></div><h3>SEO Optimized 📈</h3><p>Built with semantic structure and visibility best-practices in mind.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Client Testimonials</h2></div>
+      <div class="testimonial glass card" data-aos="fade-up">
+        <div class="slide active"><h3>“Our conversions doubled in 45 days.”</h3><p>— Aurora Dental Clinic</p></div>
+        <div class="slide"><h3>“Their UI transformed our brand credibility instantly.”</h3><p>— Nova Apparel</p></div>
+        <div class="slide"><h3>“Fast delivery, stunning visuals, and top support.”</h3><p>— BrightPath Consulting</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Trusted by growing teams</h2></div>
+      <div class="logos" data-aos="fade-up">
+        <span class="logo-pill">ALPHASTACK</span><span class="logo-pill">SYNOVA</span><span class="logo-pill">SKYBLOOM</span><span class="logo-pill">PIXELHUB</span><span class="logo-pill">NEXA MART</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© REZAWORLD | Designed by <a href="https://t.me/nebxmkr1" target="_blank" rel="noreferrer">NEB X MKR™</a></div>
+    <div class="socials"><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="https://t.me/nebxmkr1" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a><a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></div>
+  </footer>
+  <div class="watermark">@nebxmkr1</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
