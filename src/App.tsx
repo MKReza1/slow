@@ -1,4 +1,4 @@
-import {useEffect, useMemo, useState} from 'react';
+import {type ReactNode, useEffect, useMemo, useState} from 'react';
 import {Link, Route, Routes, useLocation} from 'react-router-dom';
 
 declare global {
@@ -52,6 +52,7 @@ function App() {
   }, [dark]);
 
   useEffect(() => {
+    window.scrollTo({top: 0, behavior: 'smooth'});
     window.AOS?.init({duration: 800, once: true, offset: 90});
     window.gsap?.from('.hero h1, .hero p, .hero .btn', {y: 28, opacity: 0, stagger: 0.12, duration: 0.8});
   }, [location.pathname]);
@@ -119,12 +120,12 @@ function App() {
       <main className="container">
         <Routes>
           <Route path="/" element={<Home slide={slide} />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/portfolio" element={<Portfolio filter={filter} setFilter={setFilter} />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/order" element={<Order />} />
+          <Route path="/services" element={<PageShell title="Services" subtitle="High-impact services tailored to business growth."><Services /></PageShell>} />
+          <Route path="/pricing" element={<PageShell title="Pricing / Plans" subtitle="Simple, transparent plans for every stage."><Pricing /></PageShell>} />
+          <Route path="/portfolio" element={<PageShell title="Portfolio" subtitle="Selected website projects and creative builds."><Portfolio filter={filter} setFilter={setFilter} /></PageShell>} />
+          <Route path="/about" element={<PageShell title="About REZAWORLD" subtitle="Our story, mission, and why clients choose us."><About /></PageShell>} />
+          <Route path="/contact" element={<PageShell title="Contact" subtitle="Tell us your goals and we’ll plan your website roadmap."><Contact /></PageShell>} />
+          <Route path="/order" element={<PageShell title="Order / Get Started" subtitle="Choose your plan and proceed to project onboarding."><Order /></PageShell>} />
         </Routes>
       </main>
 
@@ -134,6 +135,18 @@ function App() {
       </footer>
       <div className="watermark">@nebxmkr1</div>
     </>
+  );
+}
+
+function PageShell({title, subtitle, children}: {title: string; subtitle: string; children: ReactNode}) {
+  return (
+    <section>
+      <div className="section-head page-head" data-aos="fade-up">
+        <h1>{title}</h1>
+        <p>{subtitle}</p>
+      </div>
+      {children}
+    </section>
   );
 }
 
@@ -159,7 +172,7 @@ function Home({slide}: {slide: number}) {
       </section>
 
       <section><div className="section-head"><h2>Why brands choose us</h2></div><div className="grid grid-3">
-        {['Fast Performance ⚡', 'Modern Design 🎨', 'SEO Optimized 📈'].map((title, i) => <article className="card glass" data-aos="fade-up" data-aos-delay={i * 100} key={title}><h3>{title}</h3><p>Premium execution with measurable outcomes.</p></article>)}
+        {['Fast Performance ⚡', 'Modern Design 🎨', 'SEO Optimized 📈'].map((title, i) => <article className="card glass" data-aos="fade-up" data-aos-delay={i * 100} key={title}><div className="icon"><i className={`fa-solid ${['fa-bolt', 'fa-palette', 'fa-chart-line'][i]}`} /></div><h3>{title}</h3><p>Premium execution with measurable outcomes.</p></article>)}
       </div></section>
 
       <section><div className="section-head"><h2>Client Testimonials</h2></div><div className="testimonial glass card"><h3>{testimonials[slide][0]}</h3><p>— {testimonials[slide][1]}</p></div></section>
@@ -185,7 +198,7 @@ function Portfolio({filter, setFilter}: {filter: 'all' | 'business' | 'ecommerce
 }
 
 const About = () => <section className="grid grid-3"><article className="card glass"><h3>Brand Story</h3><p>REZAWORLD merges visual innovation with strategic conversion logic.</p></article><article className="card glass"><h3>Mission & Vision</h3><p>Build websites that look premium and perform exceptionally.</p></article><article className="card glass"><h3>Why Choose Us</h3><p>Fast execution, modern UX and transparent communication.</p></article></section>;
-const Contact = () => <section className="grid" style={{gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))'}}><article className="glass card"><form><input placeholder="Name" required /><input type="email" placeholder="Email" required /><textarea rows={6} placeholder="Message" required /><button className="btn btn-primary" type="submit">Send Message</button></form></article><article className="glass card"><h3>Direct Contact</h3><div className="btns"><a className="btn btn-secondary" href="https://wa.me/0000000000">WhatsApp</a><a className="btn btn-secondary" href="https://t.me/nebxmkr1">Telegram</a></div></article></section>;
-const Order = () => <section className="glass card" style={{maxWidth: 720}}><form><select required><option value="">Select Plan</option><option>Basic Plan</option><option>Standard Plan</option><option>Premium Plan</option><option>Ultimate Plan</option></select><input placeholder="Full Name" required /><input type="email" placeholder="Email" required /><textarea rows={6} placeholder="Project details" /><button className="btn btn-primary" type="submit">Proceed to Payment</button></form><p>Payment integration placeholder: UPI / Cashfree.</p></section>;
+const Contact = () => <section className="grid" style={{gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))'}}><article className="glass card"><form><input placeholder="Name" required /><input type="email" placeholder="Email" required /><textarea rows={6} placeholder="Message" required /><button className="btn btn-primary" type="submit">Send Message</button></form></article><article className="glass card"><h3>Direct Contact</h3><p>Reach our team instantly on your preferred channel.</p><div className="btns"><a className="btn btn-secondary" href="https://wa.me/0000000000">WhatsApp</a><a className="btn btn-secondary" href="https://t.me/nebxmkr1">Telegram</a></div><div className="map-placeholder">Map placeholder</div></article></section>;
+const Order = () => <section className="glass card" style={{maxWidth: 720}}><form><select required><option value="">Select Plan</option><option>Basic Plan</option><option>Standard Plan</option><option>Premium Plan</option><option>Ultimate Plan</option></select><input placeholder="Full Name" required /><input type="email" placeholder="Email" required /><textarea rows={6} placeholder="Project details" /><button className="btn btn-primary" type="submit">Proceed to Payment</button></form><p className="payment-note">Payment integration placeholder: UPI / Cashfree.</p></section>;
 
 export default App;
