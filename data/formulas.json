@@ -1,0 +1,12 @@
+{
+  "kinematics": [
+    {"formula": "v = u + a*t", "variables": ["v", "u", "a", "t"]},
+    {"formula": "s = u*t + 0.5*a*t^2", "variables": ["s", "u", "a", "t"]}
+  ],
+  "mechanics": [
+    {"formula": "F = m*a", "variables": ["F", "m", "a"]}
+  ],
+  "electricity": [
+    {"formula": "V = I*R", "variables": ["V", "I", "R"]}
+  ]
+}
