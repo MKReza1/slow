@@ -1,13 +1,43 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Offline Math + Physics Solver</title>
+  <meta name="description" content="Offline deterministic solver for mathematics and physics with step-by-step solutions." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-gradient"></div>
+  <header class="topbar glass">
+    <h1>Math + Physics Offline Solver</h1>
+    <button id="themeToggle" class="btn ghost">🌙 Dark</button>
+  </header>
 
+  <main class="layout">
+    <section class="panel glass">
+      <h2>Smart Input</h2>
+      <p class="muted">Type math or physics problems. Example: <code>solve 2x + 5 = 15</code> or <code>u=5 m/s, a=2 m/s^2, t=4s find v</code>.</p>
+      <div class="symbol-row" id="symbolRow"></div>
+      <textarea id="problemInput" rows="5" placeholder="Enter your problem..."></textarea>
+      <div class="actions">
+        <button id="solveBtn" class="btn primary">Solve</button>
+        <button id="clearBtn" class="btn">Clear</button>
+      </div>
+      <small class="muted">Auto-detects math vs physics. Fully offline. No external API.</small>
+    </section>
+
+    <section class="panel glass">
+      <h2>Solution Steps</h2>
+      <div id="result" class="result empty">No solution yet.</div>
+    </section>
+
+    <section class="panel glass">
+      <h2>History</h2>
+      <ul id="history" class="history"></ul>
+    </section>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
